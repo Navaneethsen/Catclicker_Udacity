@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Cat Clicker</title>
+</head>
+<body>
+<p>Cat Clicker</p>
+
+<!--Tommy-->
+<p>Tommy</p>
+<figure id="tommyFig">
+    <img src="https://lh3.ggpht.com/nlI91wYNCrjjNy5f-S3CmVehIBM4cprx-JFWOztLk7vFlhYuFR6YnxcT446AvxYg4Ab7M1Fy0twaOCWYcUk=s0#w=640&h=426"
+         alt="Tommy">
+    <figcaption id="tommyStatus">Tommy has been clicked 0 times</figcaption>
+</figure>
+
+<!--Johnny-->
+<p>Johnny</p>
+<figure id="johnnyFig">
+    <img src="https://lh3.ggpht.com/kixazxoJ2ufl3ACj2I85Xsy-Rfog97BM75ZiLaX02KgeYramAEqlEHqPC3rKqdQj4C1VFnXXryadFs1J9A=s0#w=640&h=496"
+         alt="Johnny">
+    <figcaption id="johnnyStatus">Johnny has been clicked 0 times</figcaption>
+</figure>
+
+
+<script>
+    var numClickOnTommy = 1;
+    var numClickOnJohnny = 1;
+
+    var tommyFigure = document.getElementById("tommyFig");
+    var johnnyFigure = document.getElementById("johnnyFig");
+
+    var tommyStatus = document.getElementById("tommyStatus");
+    var johnnyStatus = document.getElementById("johnnyStatus");
+
+    tommyFigure.addEventListener('click', function () {
+        tommyStatus.innerHTML = "Tommy has been clicked " + (numClickOnTommy++) + " times";
+    });
+
+    johnnyFigure.addEventListener('click', function () {
+        johnnyStatus.innerHTML = "Johnny has been clicked " + (numClickOnJohnny++) + " times";
+    });
+
+</script>
+</body>
+</html>

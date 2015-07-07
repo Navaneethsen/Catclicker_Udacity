@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Cat Clicker</title>
+    <style>
+        figure {
+            display: inline-block;
+            border: 1px dotted gray;
+            margin: 0px; /* adjust as needed */
+        }
+        figure img {
+            vertical-align: top;
+        }
+        figure figcaption {
+            border: 1px dotted blue;
+            text-align: center;
+            font-size: 24px;
+        }
+        figure p {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+<h1>Cat Clicker</h1>
+
+<figure id="tommy">
+    <figcaption>Tommy</figcaption>
+    <img src="https://s-media-cache-ak0.pinimg.com/736x/26/cf/e3/26cfe3a38425a966423aad814dd7e478.jpg"
+         alt="Tommy">
+    <p id="tommyClickStatus">This cat has been clicked <span>0</span> times</p>
+</figure>
+
+<figure id="johnny">
+    <figcaption>Johnny</figcaption>
+    <img src="https://lh3.ggpht.com/kixazxoJ2ufl3ACj2I85Xsy-Rfog97BM75ZiLaX02KgeYramAEqlEHqPC3rKqdQj4C1VFnXXryadFs1J9A=s0#w=640&h=496"
+         alt="Johnny">
+    <p id="johnnyClickStatus">This cat has been clicked <span>0</span> times</p>
+</figure>
+
+<figure id="ronny">
+    <figcaption>Ronny</figcaption>
+    <img src="http://static4.vetknowledge.com/cdn/farfuture/tt9LjTWcP-OxT46FqLWnSaKihviWqnXts7LI03u2Css/mtime:1359533467/sites/default/files/styles/large/public/images/service/senior_domestic_long_hair_cat.jpg"
+         alt="Ronny">
+    <p id="ronnyClickStatus">This cat has been clicked <span>0</span> times</p>
+</figure>
+
+<figure id="skinny">
+    <figcaption>Skinny</figcaption>
+    <img src="http://hk5h1jrb20jxth2s0b2jfj.wpengine.netdna-cdn.com/wp-content/uploads/2015/05/3893706434_ebc7519e0e_z.jpg"
+         alt="Skinny">
+    <p id="skinnyClickStatus">This cat has been clicked <span>0</span> times</p>
+</figure>
+
+<figure id="bunny">
+    <figcaption>Bunny</figcaption>
+    <img src="https://www.awesomelycute.com/gallery/2011/09/awesomely-cute-animals-290.jpg"
+         alt="Bunny">
+    <p id="bunnyClickStatus">This cat has been clicked <span>0</span> times</p>
+</figure>
+
+<figure id="jenny">
+    <figcaption>Jenny</figcaption>
+    <img src="http://hk5h1jrb20jxth2s0b2jfj.wpengine.netdna-cdn.com/wp-content/uploads/2015/06/10166854623_a18b8e683e_z.jpg"
+         alt="Jenny">
+    <p id="jennyClickStatus">This cat has been clicked <span>0</span> times</p>
+</figure>
+
+<script>
+
+    var cats = ["tommy", "johnny", "ronny", "skinny", "bunny", "jenny"];
+    for(var i=0; i<cats.length; i++)
+    {
+        var catId = cats[i];
+        var catFigure = document.getElementById(catId);
+        var catFigureStatus = catFigure.lastElementChild;
+        var elemStatus = catFigureStatus.firstElementChild;
+
+        // trying to add click event listeners
+        // Immediately-Invoked Function Expression
+
+        catFigure.addEventListener('click', clickUpdater(elemStatus, elemStatus.innerText));
+    }
+
+    //Closures
+    function clickUpdater(elemStatusCopy, clickCount) {
+        return function () {
+            elemStatusCopy.innerText = clickCount++;
+        };
+    }
+</script>
+</body>
+
+</html>
