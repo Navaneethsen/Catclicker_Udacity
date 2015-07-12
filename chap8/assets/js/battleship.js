@@ -163,7 +163,7 @@ var usedIdxs = ['0', '0', '0'];
 var COLLISION_FOUND = 100;
 
 function getShipLocation(orientation) {
-    console.log("ORIENTATION = " + orientation)
+    //console.log("ORIENTATION = " + orientation);
     var yCords = ['A', 'B', 'C', 'D', 'E', 'F', 'G'];
     var xCords = ['0', '1', '2', '3', '4', '5', '6'];
 
@@ -173,7 +173,7 @@ function getShipLocation(orientation) {
     var locations = [];
 
     if (orientation == 0) {
-        console.log("HORIZONTAL");
+        //console.log("HORIZONTAL");
         var yVal = yCords[random_y_idx];
         var xVals = [xCords[random_x_idx], xCords[random_x_idx + 1], xCords[random_x_idx + 2]];
 
@@ -195,7 +195,7 @@ function getShipLocation(orientation) {
     }
     else if (orientation == 1) {
 
-        console.log("VERTICAL");
+        //console.log("VERTICAL");
         var xVal = xCords[random_x_idx];
         var yVals = [yCords[random_y_idx], yCords[random_y_idx + 1], yCords[random_y_idx + 2]];
 
@@ -230,20 +230,20 @@ function getAllShips() {
     ships.push(ship1);
 
     var ort2 = getOrientation();
-    var ship2Loc = getShipLocation(ort2);
-    while (ship2Loc == COLLISION_FOUND) {
+    var ship2Loc;
+     do {
         ship2Loc = getShipLocation(ort2);
-    }
+    }while (ship2Loc == COLLISION_FOUND);
 
     console.log(ship2Loc);
     var ship2 = new ship(ship2Loc);
     ships.push(ship2);
 
     var ort3 = getOrientation();
-    var ship3Loc = getShipLocation(ort3);
-    while (ship3Loc == COLLISION_FOUND) {
+    var ship3Loc;
+    do {
         ship3Loc = getShipLocation(ort3);
-    }
+    }while (ship3Loc == COLLISION_FOUND);
 
     console.log(ship3Loc);
     var ship3 = new ship(ship3Loc);
