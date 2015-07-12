@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Cat Clicker Premium</title>
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+</head>
+<style>
+
+    html, body {
+        height: 100%;
+        margin: 0px;
+        padding: 0px;
+    }
+
+    ul.catNames {
+        font-size: medium;
+        color: darkblue;
+    }
+
+    #main {
+        width: 100%;
+        height: 100%;
+
+        margin-left: auto;
+        margin-right: auto position : absolute;
+    }
+
+    #catsList {
+        width: 20%;
+        height: 100%;
+        min-height: 400px;
+        background: tan;
+        float: left;
+    }
+
+    #catDetails {
+        width: 80%;
+        height: 100%;
+        background: seashell;
+        min-height: 400px;
+        float: left;
+        text-align: center;
+    }
+
+    figure {
+        display: inline-block;
+        border: 1px dotted gray;
+        margin: 0px; /* adjust as needed */
+    }
+
+    figure img {
+        /*vertical-align: middle;*/
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    figure figcaption {
+        border: 1px dotted blue;
+        text-align: center;
+        font-size: 24px;
+    }
+
+    figure p {
+        text-align: center;
+    }
+
+    .Centerer {
+        display: inline-block;
+        height: 100%;
+        vertical-align: middle;
+    }
+
+    .Centered {
+        display: inline-block;
+        vertical-align: middle;
+    }
+
+</style>
+<body>
+
+<div id="main">
+    <div id="catsList">
+        <h1>Cat Clicker Premium</h1>
+        <ul class="catNames">
+            <a href="#" id="tommy" onclick="execute(this)">
+                <li>Tommy</li>
+            </a>
+            <a href="#" id="johnny" onclick="execute(this)">
+                <li>Johnny</li>
+            </a>
+            <a href="#" id="ronny" onclick="execute(this)">
+                <li>Ronny</li>
+            </a>
+            <a href="#" id="skinny" onclick="execute(this)">
+                <li>Skinny</li>
+            </a>
+            <a href="#" id="bunny" onclick="execute(this)">
+                <li>Bunny</li>
+            </a>
+            <a href="#" id="jenny" onclick="execute(this)">
+                <li>Jenny</li>
+            </a>
+        </ul>
+    </div>
+
+    <div id="catDetails" style="display: none;">
+        <span class="Centerer"></span>
+        <figure id="catName" class="Centered">
+            <figcaption></figcaption>
+            <img src="" alt="">
+
+            <p id="">This cat has been clicked <span>0</span> times</p>
+        </figure>
+    </div>
+</div>
+
+<script>
+
+    var figcaption = document.querySelector("figcaption");
+    var figimg = document.querySelector("img");
+    var catFigure = document.getElementById("catName");
+
+    var catFigureStatus = catFigure.lastElementChild;
+    var elemStatus = catFigureStatus.firstElementChild;
+    catFigureStatus.setAttribute("click", "0");
+
+    function execute(cat) {
+        switch (cat.getAttribute('id')) {
+            case "tommy":
+                figcaption.innerHTML = "Tommy";
+                figimg.setAttribute("src", "https://s-media-cache-ak0.pinimg.com/736x/26/cf/e3/26cfe3a38425a966423aad814dd7e478.jpg");
+                figimg.setAttribute("alt", "Tommy");
+
+                catFigureStatus.setAttribute("id", "tommyClickStatus");
+
+                figimg.addEventListener('click', clickUpdater(catFigureStatus));
+                break;
+            case "johnny":
+                figcaption.innerHTML = "Johnny";
+                figimg.setAttribute("src", "https://lh3.ggpht.com/kixazxoJ2ufl3ACj2I85Xsy-Rfog97BM75ZiLaX02KgeYramAEqlEHqPC3rKqdQj4C1VFnXXryadFs1J9A=s0#w=640&h=496");
+                figimg.setAttribute("alt", "Johnny");
+
+                catFigureStatus.setAttribute("id", "johnnyClickStatus");
+
+                figimg.addEventListener('click', clickUpdater(catFigureStatus));
+                break;
+
+            case "ronny":
+                figcaption.innerHTML = "Ronny";
+                figimg.setAttribute("src", "http://static4.vetknowledge.com/cdn/farfuture/tt9LjTWcP-OxT46FqLWnSaKihviWqnXts7LI03u2Css/mtime:1359533467/sites/default/files/styles/large/public/images/service/senior_domestic_long_hair_cat.jpg");
+                figimg.setAttribute("alt", "Ronny");
+
+                catFigureStatus.setAttribute("id", "ronnyClickStatus");
+
+                figimg.addEventListener('click', clickUpdater(catFigureStatus));
+                break;
+
+            case "skinny":
+                figcaption.innerHTML = "Skinny";
+                figimg.setAttribute("src", "http://hk5h1jrb20jxth2s0b2jfj.wpengine.netdna-cdn.com/wp-content/uploads/2015/05/3893706434_ebc7519e0e_z.jpg");
+                figimg.setAttribute("alt", "Skinny");
+
+                catFigureStatus.setAttribute("id", "skinnyClickStatus");
+
+                figimg.addEventListener('click', clickUpdater(catFigureStatus));
+                break;
+
+            case "bunny":
+                figcaption.innerHTML = "Bunny";
+                figimg.setAttribute("src", "https://www.awesomelycute.com/gallery/2011/09/awesomely-cute-animals-290.jpg");
+                figimg.setAttribute("alt", "Bunny");
+
+                catFigureStatus.setAttribute("id", "bunnyClickStatus");
+
+                figimg.addEventListener('click', clickUpdater(catFigureStatus));
+                break;
+
+            case "jenny":
+                figcaption.innerHTML = "Jenny";
+                figimg.setAttribute("src", "http://hk5h1jrb20jxth2s0b2jfj.wpengine.netdna-cdn.com/wp-content/uploads/2015/06/10166854623_a18b8e683e_z.jpg");
+                figimg.setAttribute("alt", "Jenny");
+
+                catFigureStatus.setAttribute("id", "jennyClickStatus");
+
+                figimg.addEventListener('click', clickUpdater(catFigureStatus));
+                break;
+        }
+        document.getElementById('catDetails').style.display = "block";
+    }
+
+    //Closures
+    function clickUpdater(elemStatusCopy) {
+
+        console.log(elemStatusCopy);
+
+        return function () {
+            var elemStatus = elemStatusCopy.firstElementChild;
+            var click = elemStatusCopy.getAttribute("click");
+            click++;
+            elemStatus.innerText = click;
+            elemStatusCopy.setAttribute("click", click);
+        };
+    }
+</script>
+</body>
+</html>
