@@ -9,7 +9,23 @@ function init() {
     var guessInput = document.getElementById("guessInput");
     guessInput.onkeypress = handleKeyPress;
 
+    initCells();
+
 }
+
+function initCells() {
+    for(var i = 0; i < 7; i++)
+    {
+        for (var j=0; j< 7; j++)
+        {
+            var cellId = i + "" + j;
+            //console.log(cellId);
+            var cell = document.getElementById(cellId);
+            cell.onclick = handleClick;
+        }
+    }
+}
+
 function handleFireButton() {
     var guessInput = document.getElementById("guessInput");
     var guess = guessInput.value.toUpperCase();
@@ -24,6 +40,18 @@ function handleKeyPress(e) {
         fireButton.click();
         return false;
     }
+}
+
+function handleClick(e) {
+    var cellId = e.target.id;
+    var yCords = ['A', 'B', 'C', 'D', 'E', 'F', 'G'];
+
+    var valAtPos1 = cellId.substr(0, 1);
+    var valAtPos2 = cellId.substr(1, 1);
+
+    var charAtPos1 = yCords[valAtPos1];
+    controller.processGuess(charAtPos1 + "" +valAtPos2);
+
 }
 
 window.onload = init;
@@ -86,6 +114,8 @@ var controller = {
     numGuesses: 0,
     guesses: [],
     processGuess: function (guess) {
+
+        console.log(guess);
 
         if (model.shipsSunk === model.numShips) {
             alert("Game Over! Please start a new game!");
